@@ -1,0 +1,76 @@
+NODEJS
+
+
+
+Create a NODEJS project :
+npm init --yes 
+( sans le yes npm nous demande de donner un nom etc...)
+cela creer un fichier 
+package.json
+
+
+puis nous devons faire un :
+npm install pour pouvoir ajouter des packages
+cela creer un fichier package-lock.json
+
+
+INSTALLATION EXPRESS
+express est une api back end 
+instalation avec la commande:
+npm i express body-parser bcrypt
+(bcrypt c'est pour faire des mdp crypter)
+puis 
+npm i express body-parser bcrypt jsonwebtoken
+(jsonwebtoken c'est des cookies back end)
+puis (pour utiliser une bdd mongooseDB c'est un type de bdd de style json 
+c'est pour qu'on face que du js)
+npm i express body-parser bcrypt  jsonwebtoken mongoose
+
+
+-INFO :
+dans le fichier package.json maintenant on peux voir un tableau de depencies
+-bcrypt
+-body-parser
+-expressjsonwebtoken
+-mongoose
+
+
+install nodemon:
+npm i nodemon --dev
+ça permet de relancer le server automatiquement pas besoin de refresh
+
+
+SRC
+-config(port,db,mdp...)
+-MODELS
+-CONTROLLERS
+-ROUTES
+-SERVICES
+-UTILITIES (middleware(petite fonction de if utilisable partout))
+
+nous creeons nous même notre architecture
+donc la nous avons creer nous même les fichiers et dossier:
+server.js
+-SRC
+--configs
+---db.config.js
+---jwt.config.js
+---server.config.js
+
+
+
+
+
+
+SERVER.CONFIG.JS{
+
+module.exports={
+    
+}
+
+
+
+
+
+
+}
