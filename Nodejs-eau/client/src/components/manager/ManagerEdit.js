@@ -95,4 +95,4 @@ handleChange = (event) => {
   }
 }
 
-export default GolfEdit;
+export default ManagerEdit;
