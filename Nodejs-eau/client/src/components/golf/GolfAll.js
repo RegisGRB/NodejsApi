@@ -46,7 +46,7 @@ class GolfAll extends React.Component {
     console.log(items);
     return (
       <div className="GolfAll">
-        <table class="table">
+        <table className="table">
           <thead>
             <tr>
               <th scope="col">Title</th>

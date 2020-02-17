@@ -9,6 +9,9 @@ import GolfAll from "./components/golf/GolfAll";
 import GolfEdit from "./components/golf/GolfEdit";
 import UserAll from "./components/user/UserAll"
 import UserEdit from "./components/user/UserEdit";
+import Managercreate from "./components/manager/Managercreate";
+import ManagerEdit from "./components/manager/ManagerEdit";
+import ManagerAll from "./components/manager/ManagerAll"
 class Routes extends React.Component {
 constructor(props){
 super(props);
@@ -53,8 +56,13 @@ console.log(isLoggedIn);
     <Route path="/GolfAll" component={GolfAll } />
     <Route path="/Golf/Edit/:id" component={GolfEdit } />
 
+
     <Route path="/User/Edit/:id" component={UserEdit } />
     <Route path="/UserAll" component={UserAll } />
+
+    <Route path="/Managercreate" component={Managercreate } />
+    <Route path="/Manager/Edit/:id" component={ManagerEdit } />
+    <Route path="/ManagerAll" component={ManagerAll } />
    </div>
    );
   }

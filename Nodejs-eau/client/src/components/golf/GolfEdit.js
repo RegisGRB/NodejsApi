@@ -2,6 +2,7 @@ import React from "react";
 import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Golfservice from "../../services/Golf.service.jsx";
+import ManagerService from "../../services/Manager.service.jsx";
 class GolfEdit extends React.Component {
   constructor(props) {
     super();
@@ -10,7 +11,8 @@ class GolfEdit extends React.Component {
       Latitude:"48.718358",
       Longitude:"2.067566",
       Description: "ceci est un golf",
-      id_Manager: 1
+      id_Manager: 1,
+      manage:[]
     };
     this.Golf = new Golfservice();
     const golf = this.Golf.getgolfsDetail(props.match.params.id);
@@ -21,6 +23,14 @@ class GolfEdit extends React.Component {
         Longitude:datax.Longitude,
         Description: datax.Description,
         id_Manager:datax.id_Manager
+      });
+    });
+
+    this.Manager = new ManagerService();
+    const allmanagers = this.Manager.getmanagers();
+    allmanagers.then(datax => {
+      this.setState({
+        manage: datax
       });
     });
   }
@@ -78,13 +88,24 @@ handleChange = (event) => {
             type="text"
           />
         </FormGroup>
+        
         <FormGroup controlId="id_Manager" bsSize="large">
-          <ControlLabel>Manager</ControlLabel>
+        <ControlLabel>Manager</ControlLabel>
           <FormControl
-            value={id_Manager}
+            componentClass="select"
+            placeholder="select"
+            value={this.state.id_Manager}
+            inputRef={el => (this.inputEl = el )}
             onChange={this.handleChange}
-            type="number"
-          />
+
+          >
+           <option></option>
+        {
+            this.state.manage.map(function (data) {
+              return <option key={data._id} value={data._id} type="text">{data.Nom} {data.Prenom}</option>
+            })
+        }
+          </FormControl>
         </FormGroup>
         <Button onClick={this.send} block bsSize="large" type="submit">
           Edit golf

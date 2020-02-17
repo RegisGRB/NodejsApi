@@ -1,39 +1,39 @@
 import React from "react";
 import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import Userservice from "../../services/User.service.jsx";
-class UserAll extends React.Component {
+import ManagerService from "../../services/Manager.service.jsx";
+class ManagerAll extends React.Component {
   constructor(props) {
     super();
     this.state = {
       data: []
     };
-    this.User = new Userservice();
-    const alluser = this.User.getusers();
-    alluser.then(datax => {
+    this.Manager = new ManagerService();
+    const allmanagers = this.Manager.getmanagers();
+    allmanagers.then(datax => {
       this.setState({
         data: datax
       });
     });
-    console.log(alluser);
+    console.log(allmanagers);
   }
 
   render() {
     const items = this.state.data.map((datar, key) => (
       <tr key={key} style={{ width: "100%" }}>
-        <h4>{datar.email}</h4>
+        <h4>{datar.Nom} {datar.Prenom}</h4>
         <td>
-          {datar.firstname} {datar.lastname}
+          {datar.Mail}
         </td>
         <td>
-          {datar.admin.toString()}
+          {datar.Tel}
         </td>
-        <td><Link to={"/User/Edit/" + datar._id}>
+        <td><Link to={"/Manager/Edit/" + datar._id}>
           <Button className="btn btn-primary">Edit</Button>
         </Link></td>
         <td><Button
           className="btn  btn-danger"
-          onClick={() => this.deleteuser(datar)}
+          onClick={() => this.deletemanager(datar)}
         >
           DELETE
         </Button></td>
@@ -42,13 +42,14 @@ class UserAll extends React.Component {
 
     console.log(items);
     return (
-      <div className="GolfAll">
+      <div className="ManagerAll">
         <table className="table">
           <thead>
             <tr>
-              <th scope="col">email</th>
-              <th scope="col">firstname lastname</th>
-              <th scope="col">admin</th>
+              <th scope="col">Nom</th>
+              <th scope="col">Prenom</th>
+              <th scope="col">Mail</th>
+              <th scope="col">Tel</th>
               <th scope="col">Edit</th>
               <th scope="col">DELETE</th>
             </tr>
@@ -59,8 +60,8 @@ class UserAll extends React.Component {
     );
   }
 
-  async deleteuser(element) {
-    const { data } = await this.User.removeuser(element._id);
+  async deletemanager(element) {
+    const { data } = await this.Manager.removeManager(element._id);
     console.log(data);
     var array = [...this.state.data];
     var index = array.indexOf(element);
@@ -71,4 +72,4 @@ class UserAll extends React.Component {
   }
 }
 
-export default UserAll;
+export default ManagerAll;

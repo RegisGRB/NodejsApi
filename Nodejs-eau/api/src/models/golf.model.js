@@ -22,7 +22,7 @@ Description:{
   
 },
 id_Manager:{
-    type:Number,
+    type:String,
 },},{
 
 timestamps:true

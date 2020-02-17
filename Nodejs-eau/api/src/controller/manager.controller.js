@@ -3,7 +3,7 @@ const bcrypt = require("bcrypt");
 exports.create = (req, res) => {
   // req valeur qu'on recupere res resultat
 
-  const Manager = new manager({
+  const manager = new Manager({
     Nom: req.body.Nom,
     Prenom:req.body.Prenom,
     Mail: req.body.Mail,
@@ -13,7 +13,7 @@ exports.create = (req, res) => {
   /*if (err) {
     res.send(err);
   } else {*/
-  Manager
+    manager
     .save()
     .then(data => {
       res.send(data);

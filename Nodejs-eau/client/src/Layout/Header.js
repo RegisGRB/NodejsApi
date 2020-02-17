@@ -57,6 +57,12 @@ function RenderHeader(log,admin) {
         <li className="liheader">
           <Link to="/UserAll">UserAll</Link>
         </li>
+        <li className="liheader">
+          <Link to="/Managercreate">Managercreate</Link>
+        </li>
+        <li className="liheader">
+          <Link to="/ManagerAll">ManagerAll</Link>
+        </li>
       </ul>
     );
   }

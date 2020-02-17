@@ -10,7 +10,7 @@ Prenom:{
 },
 
 Mail:{
-    type:Number,
+    type:String,
   
 },
 
