@@ -1,0 +1,11 @@
+const express = require('express');
+const router = express.Router();
+const manager = require('../controller/manager.controller');
+const verifyToken = require('../helpers/verifyToken');
+router.post('/managers',manager.create);
+router.get('/managers/all/',verifyToken,manager.findAll);
+router.get('/managers/id/:id',verifyToken,manager.findById);
+router.delete('/managers/idremove/:id',verifyToken,manager.findByIdAndRemove);
+router.put('/managers/idupdate/:id',verifyToken,manager.findByIdAndUpdate);
+router.delete('/managers/remove/:id',verifyToken,manager.removeALL);
+module.exports = router;
