@@ -2,3 +2,8 @@
 <h1 style="color:red"><i>- Regis Grumberg</i></h1>
 
 <h1 style="color:red"><i>- Winson au</i></h1>
+
+<p>Install: 
+Nodejs 12.13 
+  npm install & npm start on client/api
+</p>
