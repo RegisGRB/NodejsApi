@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import Golfservice from "../../services/Manager.service.jsx";
+import Managerservice from "../../services/Manager.service.jsx";
 class ManagerAll extends React.Component {
   constructor(props) {
     super();
@@ -64,7 +64,7 @@ class ManagerAll extends React.Component {
   }
 
   async deletemanager(element) {
-    const { data } = await this.Golf.removeManager(element._id);
+    const { data } = await this.Manager.removeManager(element._id);
     console.log(data);
     var array = [...this.state.data];
     var index = array.indexOf(element);

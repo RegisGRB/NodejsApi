@@ -1,8 +1,8 @@
 import React from "react";
 import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import Golfservice from "../../services/Manager.service.jsx";
-class GolfEdit extends React.Component {
+import Managerservice from "../../services/Manager.service.jsx";
+class ManagerEdit extends React.Component {
   constructor(props) {
     super();
     this.  state = {
@@ -13,8 +13,8 @@ class GolfEdit extends React.Component {
       id_Manager: 1
     };
     this.Manager = new Managerservice();
-    const manager = this.Manager.getgolfsDetail(props.match.params.id);
-    golf.then(datax => {
+    const manager = this.Manager.getManagerDetail(props.match.params.id);
+    manager.then(datax => {
       this.setState({
         Nom: datax.Nom,
         Prenom:datax.Prenom,
@@ -28,9 +28,9 @@ class GolfEdit extends React.Component {
   send = async () => {
     const { Nom, Prenom,Mail,Tel, id_Manager } = this.state;
     try {
-      const data = await this.Manager.Editgolf(this.props.match.params.id,{ Nom, Prenom,Mail,Tel, id_Manager });
+      const data = await this.Manager.EditManager(this.props.match.params.id,{ Nom, Prenom,Mail,Tel, id_Manager });
      console.log(data)
-     window.location = "/ManagerfAll";
+     window.location = "/ManagerAll";
     } catch (error) {
       console.error(error);
     }
